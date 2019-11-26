@@ -7,6 +7,33 @@
         <element id="directory" name="classes">
           <element id="module-output" name="JavaWeb" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter:5.6.0-M1" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-api:5.6.0-M1" />
+          <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.1.0" />
+          <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.2.0" />
+          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.6.0-M1" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-params:5.6.0-M1" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.6.0-M1" />
+          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.6.0-M1" />
+          <element id="library" level="project" name="Maven: jaxen:jaxen:1.1-beta-5" />
+          <element id="library" level="project" name="Maven: jdom:jdom:1.0" />
+          <element id="library" level="project" name="Maven: xerces:xmlParserAPIs:2.6.2" />
+          <element id="library" level="project" name="Maven: xerces:xercesImpl:2.6.2" />
+          <element id="library" level="project" name="Maven: xom:xom:1.0b3" />
+          <element id="library" level="project" name="Maven: com.ibm.icu:icu4j:2.6.1" />
+          <element id="library" level="project" name="Maven: xalan:xalan:2.6.0" />
+          <element id="library" level="project" name="Maven: org.ccil.cowan.tagsoup:tagsoup:0.9.7" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.1" />
+        </element>
       </element>
     </root>
   </artifact>
