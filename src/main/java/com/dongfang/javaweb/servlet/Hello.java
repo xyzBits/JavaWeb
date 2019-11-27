@@ -27,7 +27,7 @@ public class Hello extends HttpServlet {
 
         //设置逻辑实现
         PrintWriter out = response.getWriter();
-        out.println("<h1>Servlet后台</h1>");
+        out.println("Servlet");
 
 
 //        ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
@@ -43,8 +43,8 @@ public class Hello extends HttpServlet {
 
         String requestToString = httpServletRequestToString(request);
 
-        out.println();
-        out.println(requestToString);
+        //out.println();
+        //out.println(requestToString);
         System.out.println("requestToString = " + requestToString);
     }
 
