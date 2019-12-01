@@ -11,6 +11,7 @@ import java.net.Socket;
  * GET / HTTP/1.1
  * 请求方法 资源路径 协议版本
  *
+ * 大类型/小类型
  * 请求头信息：请求的头部信息
  * Host: localhost:31943
  * Connection: keep-alive 长连接

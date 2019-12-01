@@ -11,7 +11,7 @@
   <title>Homepage</title>
 </head>
 <body>
-<a href="Hello">第一个动态web项目</a>
+<a href="/helloWorld">第一个动态web项目</a>
 <form action="http://localhost:31943/regist" method="post">
   用户名<input type="text" name="username"/>
     <input type="submit"/>

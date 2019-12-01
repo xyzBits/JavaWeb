@@ -1,9 +1,5 @@
 package com.dongfang.javaweb.servlet;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +12,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
+/**
+ * Servlet的作用，运行在web server中的java小程序
+ *      1、接收请求
+ *      2、处理请求
+ *      3、完成响应
+ *      Servlet是服务端的一个组件，本质是服务端小程序，Servlet的实例对象由Servlet容器负责创建，
+ *      Servlet的方法由容器在特定情况下调用，Servlet容器会在web应用卸载时销毁Servlet对象的实例
+ *
+ *      server letter
+ */
 @WebServlet(name = "Hello")
 public class Hello extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
