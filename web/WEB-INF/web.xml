@@ -4,24 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <!--动态资源 都是在web.xml中定义的，url pattern 就是动态资源-->
-    
-    <!--在servlet标签中配置servlet的类信息，告诉服务器我有这个servlet-->
-    <servlet>
-        <!--配置servlet的名字，相当于给Servlet类起别名-->
-        <servlet-name>FirstServlet</servlet-name>
-        <!--配置servlet类的全名，服务器通过全类名找到的-->
-        <servlet-class>com.dongfang.javaweb.servlet.ch0_intro.FirstServlet</servlet-class>
-    </servlet>
 
-    <!--servlet映射信息，也就是servlet用来处理哪一个请求-->
-    <servlet-mapping>
-        <!--刚才配置的servlet的别名-->
-        <servlet-name>FirstServlet</servlet-name>
-        <!--这个servlet用来处理哪个请求 http://localhost:31945/helloWorld-->
-        <!--访问当前项目下的/helloWorld-->
-        <url-pattern>/helloWorld</url-pattern>
-    </servlet-mapping>
-    
-    
+
 </web-app>

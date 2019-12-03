@@ -29,7 +29,6 @@ import java.io.PrintWriter;
  *      动态资源：请求的动态资源是启动一段程序来处理
  */
 public class FirstServlet implements Servlet {
-
     public FirstServlet() {
         super();
         System.out.println("被 创建");
