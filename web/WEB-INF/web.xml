@@ -5,5 +5,14 @@
          version="4.0">
 
 
+    <servlet>
+        <servlet-name>FirstHttpServlet</servlet-name>
+        <servlet-class>com.dongfang.javaweb.servlet.ch1_http.FirstHttpServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FirstHttpServlet</servlet-name>
+        <url-pattern>/firstHttpServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
