@@ -15,4 +15,15 @@
         <url-pattern>/firstHttpServlet</url-pattern>
     </servlet-mapping>
 
+
+
+    <servlet>
+        <servlet-name>EncodingServlet</servlet-name>
+        <servlet-class>com.dongfang.javaweb.servlet.ch1_http.EncodingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EncodingServlet</servlet-name>
+        <url-pattern>/encodingServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
