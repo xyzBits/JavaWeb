@@ -20,6 +20,18 @@ import java.util.Map;
  *      GenericServlet中的为抽象方法，所以调HttpServlet中的方法，然后再调用HttpServlet自己实现的service()方法，
  *      此service方法中，根据请求，再调用真正的doGet方法
  */
+
+/**
+ * 转发与重定向的区别
+ *                      转发                                      重定向
+ * 浏览器地址栏           不会变化                                会变化
+ * Request              同一个请求                              两次请求
+ * APi                  request对象                            Response对象
+ * 位置                  服务器内部完成                           浏览器完成
+ * WEB-INF              可以访问                                不能访问
+ * 共享请求域数据          可以共享                                不可以共享
+ * 目标资源               必须是当前web应用中的资源                  不局限于当前web应用
+ */
 public class FirstHttpServlet extends HttpServlet {
     public FirstHttpServlet() {
         System.out.println("我是构造器");
@@ -51,6 +63,7 @@ public class FirstHttpServlet extends HttpServlet {
         // 已经对之前 的request响应完了
         // 重定向请求了两次，第一次的响应为302
         resp.sendRedirect("/pages/html/success.html");
+        // 动态资源的虚拟路径就是web.xml中配置的url-pattern，告诉浏览器，重新请求另一个资源
         System.out.println("req.getClass() = " + req.getClass());
 
     }
@@ -80,6 +93,8 @@ public class FirstHttpServlet extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/pages/html/success.html");
         // 将请求转发出去，只发一次请求
         dispatcher.forward(req, resp);
+        // 转发的资源是静态或者页面，服务器会直接给浏览器返回这个资源
+        // 交给servlet的时候，可以继续处理，直到最后一个servlet完成响应
 
         // 4、作为域对象 ServletContext
 
