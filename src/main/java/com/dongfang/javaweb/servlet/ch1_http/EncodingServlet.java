@@ -1,7 +1,12 @@
 package com.dongfang.javaweb.servlet.ch1_http;
 
-import javafx.concurrent.Worker;
+import com.dongfang.utils.JsonUtils;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.ibm.icu.lang.UScriptRun;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -57,5 +62,39 @@ public class EncodingServlet extends HttpServlet {
 
         PrintWriter writer = resp.getWriter();
         writer.println("请求成功");
+    }
+
+    @Override
+    protected void doHead(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userName = req.getParameter("userName");
+        System.out.println("userName = " + userName);
+
+        resp.setContentType("test/html;charset=utf-8");
+        resp.getWriter().println("请求成功");
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 浏览器将数据提交上来，但是服务器并不知道编码规则
+        // 解决方法；让服务器知道编码规则，重新设置请求的编码格式
+        // 如果是url中的参数，要在connector中设置 URIEncoding="UTF-8"
+        // 浏览器会将地址栏进行编码，服务不知道编码规则，而且端口接收到请求后，已经按照默认的方式解码
+        // 所以req中设置解码方式对url中的参数没有作用，就修改tomcat的配置文件
+        req.setCharacterEncoding("utf-8");
+
+        JsonNode reqNode = JsonUtils.parseInputToJson(req.getInputStream());
+        JsonNode userName = reqNode.findValue("userName");
+        System.out.println("userName = " + userName);
+        JsonNode age = reqNode.findValue("age");
+        System.out.println("age = " + age);
+        System.out.println("reqNode = " + reqNode);
+
+        resp.setContentType("application/json;charset-utf-8");
+        PrintWriter out = resp.getWriter();
+        ObjectNode respNode = JsonUtils.getMapper().createObjectNode();
+
+        respNode.put("Mobile", 9988888);
+        respNode.put("Name", "ManojSarnaik");
+        out.print(respNode.toString());
     }
 }
