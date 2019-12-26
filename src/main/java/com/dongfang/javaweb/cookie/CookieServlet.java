@@ -9,27 +9,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Cookie：服务器发送给浏览器要保存的数据，浏览器保存相关数据
- *      HTTP是无状态协议，
- *          服务器无法分辨每次的讲求来自于谁
- *          如果客户端来的时候能带上类似会员卡的东西，记录卡号
- *
- *      Cookie是服务器发送给浏览器的会员卡
- *      服务器让浏览器保存一份数据，以后访问的时候带上相应的数据
- *
- *
- *      1、cookie创建发送给浏览器，响应头多了：Set-Cookie:userName=lidongfang
- *          就是命令浏览器保存cookie
- *          浏览器默认保存这个字段，默认在一个会话期间只有访问这个项目，cookie都携带
- *          以后，只要是请求当前项目下的资源 ，都会携带
- *
- *      2、获取cookie
- *          request.getCookies()
- *      3、删除：cookie生命周期
- *              1）、默认cookie是在会话期间有效，浏览器一直不关
- *              2）、cookie可以修改默认的存活时间
+ * HTTP是无状态协议，
+ * 服务器无法分辨每次的讲求来自于谁
+ * 如果客户端来的时候能带上类似会员卡的东西，记录卡号
+ * <p>
+ * Cookie是服务器发送给浏览器的会员卡
+ * 服务器让浏览器保存一份数据，以后访问的时候带上相应的数据
+ * <p>
+ * <p>
+ * 1、cookie创建发送给浏览器，响应头多了：Set-Cookie:userName=lidongfang
+ * 就是命令浏览器保存cookie
+ * 浏览器默认保存这个字段，默认在一个会话期间只有访问这个项目，cookie都携带
+ * 以后，只要是请求当前项目下的资源 ，都会携带
+ * <p>
+ * 2、获取cookie
+ * request.getCookies()
+ * 3、删除：cookie生命周期
+ * 1）、默认cookie是在会话期间有效，浏览器一直不关
+ * 2）、cookie可以修改默认的存活时间
  */
 public class CookieServlet extends HttpServlet {
 
@@ -75,6 +81,28 @@ public class CookieServlet extends HttpServlet {
 
     protected void deleteCookie(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Cookie[] cookies = req.getCookies();
+    }
 
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Enumeration<String> headerNames = req.getHeaderNames();
+        ArrayList<String> headerList = Collections.list(headerNames);
+        StringBuilder sb = new StringBuilder();
+        headerList.remove("connection");
+        for (String nextElement : headerList) {
+            sb.append(nextElement).append(":").append(req.getHeader(nextElement)).append(System.getProperty("line.separator"));
+        }
+
+        System.out.println("sb = " + sb);
+    }
+
+    @Override
+    protected void doHead(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Map<String, String> headers = Collections
+                .list(req.getHeaderNames())
+                .stream()
+                .collect(Collectors.toMap(h -> h, req::getHeader));
+        System.out.println("headers = " + headers);
     }
 }
